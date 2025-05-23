@@ -3,7 +3,7 @@
 @section('content')
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-        <h1>Daftar Mahasiswa</h1>
+        <h1>Daftar Penghuni</h1>
         
         @if(session('success'))
             <div class="alert alert-success">
@@ -11,30 +11,30 @@
             </div>
         @endif
         
-        <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <a href="{{ route('penghuni.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
         
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nim</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Jurusan</th>
+                    <th scope="col">Nomor</th>
+                    <th scope="col">Kamar</th>
+                    <th scope="col">Masa Sewa</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($mahasiswa as $mhs)
+                @foreach ($penghuni as $phi)
                 <tr>
-                    <td>{{ $mhs->id }}</td>
-                    <td>{{ $mhs->nim }}</td>
-                    <td>{{ $mhs->nama }}</td>
-                    <td>{{ $mhs->email }}</td>
-                    <td>{{ $mhs->jurusan }}</td>
+                    <td>{{ $phi->id }}</td>
+                    <td>{{ $phi->nama }}</td>
+                    <td>{{ $phi->nomor }}</td>
+                    <td>{{ $phi->kamar }}</td>
+                    <td>{{ $phi->masaSewa }}</td>
                     <td>
-                        <a href="{{ route('mahasiswa.edit', $mhs->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="POST" class="d-inline">
+                        <a href="{{ route('penghuni.edit', $phi->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('penghuni.destroy', $phi->id) }}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger">Delete</button>

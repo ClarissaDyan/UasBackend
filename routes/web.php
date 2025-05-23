@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ManajemanPenghuniController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,12 +17,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
+Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-    Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
-    Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
-    Route::put('/mahasiswa/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
-    Route::delete('/mahasiswa/destroy/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
+    Route::get('/penghuni/create', [ManajemanPenghuniController::class, 'create'])->name('penghuni.create');
+    Route::get('/penghuni/edit/{id}', [ManajemanPenghuniController::class, 'edit'])->name('penghuni.edit');
+    Route::post('/penghuni/store', [ManajemanPenghuniController::class, 'store'])->name('penghuni.store');
+    Route::put('/penghuni/update/{id}', [ManajemanPenghuniController::class, 'update'])->name('penghuni.update');
+    Route::delete('/penghuni/destroy/{id}', [ManajemanPenghuniController::class, 'destroy'])->name('penghuni.destroy');
 });
