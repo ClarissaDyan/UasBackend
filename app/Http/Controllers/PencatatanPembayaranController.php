@@ -26,6 +26,7 @@ class PencatatanPembayaranController extends Controller
         'nomor' => 'required',
         'kamar' => 'required',
         'hargaSewa' => 'required',
+        'tanggal' => 'required',
         'status' => 'required',
     ]);
     
@@ -47,6 +48,7 @@ class PencatatanPembayaranController extends Controller
         'nomor' => 'required',
         'kamar' => 'required',
         'hargaSewa' => 'required',
+        'tanggal' => 'required',
         'status' => 'required',
     ]);
 
@@ -55,6 +57,7 @@ class PencatatanPembayaranController extends Controller
         'nomor' => $request->nomor,
         'kamar' => $request->kamar,
         'hargaSewa' => $request->hargaSewa,
+        'tanggal' => $request->tanggal,
         'status' => $request->status,
     ];
 

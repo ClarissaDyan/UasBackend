@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('penghuni') }}">Penghuni</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pencatatan') }}">Pembayaran</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

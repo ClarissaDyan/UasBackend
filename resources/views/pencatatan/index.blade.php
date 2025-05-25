@@ -21,6 +21,7 @@
                     <th scope="col">Nomor</th>
                     <th scope="col">Kamar</th>
                     <th scope="col">Harga Sewa</th>
+                    <th scope="col">Tanggal Jatuh Tempo</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -33,6 +34,7 @@
                     <td>{{ $phi->nomor }}</td>
                     <td>{{ $phi->kamar }}</td>
                     <td>{{ $phi->hargaSewa }}</td>
+                    <td>{{ $phi->tanggal}}</td>
                     <td>{{ $phi->status }}</td>
                     <td>
                         <a href="{{ route('pencatatan.edit', $phi->id) }}" class="btn btn-warning">Edit</a>

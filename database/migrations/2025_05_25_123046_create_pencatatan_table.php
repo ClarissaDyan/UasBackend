@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nomor');
             $table->string('kamar');
             $table->string('hargaSewa');
+            $table->date('tanggal');
             $table->string('status');
             $table->timestamps();
         });

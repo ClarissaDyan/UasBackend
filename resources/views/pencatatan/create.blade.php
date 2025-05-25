@@ -24,9 +24,18 @@
                 <input type="text" class="form-control" id="hargaSewa" name="hargaSewa" required>
             </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <input type="text" class="form-control" id="status" name="status" required>
+                <label for="tanggal" class="form-label">Tanggal Jatuh Tempo</label>
+                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
             </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="">-- Pilih Status --</option>
+                    <option value="Lunas">Lunas</option>
+                    <option value="Belum Lunas">Belum Lunas</option>
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

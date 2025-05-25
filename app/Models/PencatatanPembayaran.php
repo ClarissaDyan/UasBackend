@@ -14,6 +14,7 @@ class PencatatanPembayaran extends Model
         'nomor',
         'kamar',
         'hargaSewa',
+        'tanggal',
         'status',
     ];
 
