@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ManajemanPenghuniController;
 use App\Http\Controllers\ManajemenKamarKosController;
+use App\Http\Controllers\RiwayatPenghuniController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,4 +34,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/kamarkos/store', [ManajemenKamarKosController::class, 'store'])->name('kamarkos.store');
     Route::put('/kamarkos/update/{id}', [ManajemenKamarKosController::class, 'update'])->name('kamarkos.update');
     Route::delete('/kamarkos/destroy/{id}', [ManajemenKamarKosController::class, 'destroy'])->name('kamarkos.destroy');
+});
+
+// Route for Riwayat Penghuni
+Route::get('/riwayat_penghuni', [RiwayatPenghuniController::class, 'index'])->name('riwayat_penghuni'); 
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/riwayat_penghuni/create', [RiwayatPenghuniController::class, 'create'])->name('riwayat_penghuni.create');
+    Route::get('/riwayat_penghuni/edit/{id}', [RiwayatPenghuniController::class, 'edit'])->name('riwayat_penghuni.edit');
+    Route::post('/riwayat_penghuni/store', [RiwayatPenghuniController::class, 'store'])->name('riwayat_penghuni.store');
+    Route::put('/riwayat_penghuni/update/{id}', [RiwayatPenghuniController::class, 'update'])->name('riwayat_penghuni.update');
+    Route::delete('/riwayat_penghuni/destroy/{id}', [RiwayatPenghuniController::class, 'destroy'])->name('riwayat_penghuni.destroy');
 });
