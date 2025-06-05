@@ -15,6 +15,20 @@ class ManajemenKamarKosController extends Controller
         return view('kamarkos.index', compact('kamarkos'));
     }
 
+    //Fungsi khusus untuk sorting berdasarkan nomor kamar
+    public function sortByNomorKamar($direction = 'asc')
+    {
+        // Validasi direction
+        if (!in_array($direction, ['asc', 'desc'])) {
+            $direction = 'asc';
+        }
+        
+        $kamarkos = ManajemenKamarKos::orderBy('nomorkamar', $direction)->get();
+        $sort = $direction; // untuk keperluan view mengetahui sorting aktif
+        
+        return view('kamarkos.index', compact('kamarkos', 'sort'));
+    }
+
     //Fungsi untuk memunculkan form tambah data
     public function create()
     {
@@ -31,9 +45,9 @@ class ManajemenKamarKosController extends Controller
             'fasilitas' => 'required',
         ]);
 
-    $kamarkos = ManajemenKamarKos::create($request->all());
+        $kamarkos = ManajemenKamarKos::create($request->all());
 
-    return redirect()->route('kamarkos')->with('success', 'Detail kamar kos created successfully');
+        return redirect()->route('kamarkos')->with('success', 'Detail kamar kos created successfully');
     }
 
     //Fungsi untuk memunculkan form edit
@@ -74,5 +88,4 @@ class ManajemenKamarKosController extends Controller
         return redirect()->route('kamarkos')
             ->with('success', 'Detail Kamar Kos deleted successfully');
     }
-
 }

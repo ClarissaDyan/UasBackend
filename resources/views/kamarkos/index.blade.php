@@ -11,6 +11,24 @@
             </div>
         @endif
         
+        <!-- Sorting Controls -->
+        <div class="mb-3">
+            <label class="fw-bold">Sorting:</label>
+            <div class="btn-group ms-2" role="group">
+                <a href="{{ route('kamarkos') }}" class="btn btn-sm btn-secondary">
+                    Normal
+                </a>
+                <a href="{{ route('kamarkos.sort', 'asc') }}" 
+                   class="btn btn-sm {{ (isset($sort) && $sort == 'asc') ? 'btn-primary' : 'btn-outline-primary' }}">
+                    Sort Naik
+                </a>
+                <a href="{{ route('kamarkos.sort', 'desc') }}" 
+                   class="btn btn-sm {{ (isset($sort) && $sort == 'desc') ? 'btn-primary' : 'btn-outline-primary' }}">
+                    Sort Turun
+                </a>
+            </div>
+        </div>
+        
         <a href="{{ route('kamarkos.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
         
         <table class="table">

@@ -29,6 +29,12 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/kamarkos', [ManajemenKamarKosController::class, 'index'])->name('kamarkos');
 
 Route::group(['middleware' => 'auth'], function () {
+    // Route untuk sorting kamar kos
+    Route::get('/kamarkos/sort/{direction}', [ManajemenKamarKosController::class, 'sortByNomorKamar'])
+    ->name('kamarkos.sort')
+    ->where('direction', 'asc|desc');
+
+    // Route untuk CRUD kamar kos
     Route::get('/kamarkos/create', [ManajemenKamarKosController::class, 'create'])->name('kamarkos.create');
     Route::get('/kamarkos/edit/{id}', [ManajemenKamarKosController::class, 'edit'])->name('kamarkos.edit');
     Route::post('/kamarkos/store', [ManajemenKamarKosController::class, 'store'])->name('kamarkos.store');
