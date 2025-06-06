@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Tambah Data Pencatatan Pembayaran</h1>
 
-        <form action="{{ route('pencatatan.store') }}" method="POST">
+        <form action="{{ route('pembayaran.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>

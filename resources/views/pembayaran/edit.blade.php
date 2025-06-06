@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Edit Data Pencatatan Pembayaran</h1>
 
-        <form action="{{ route('pencatatan.update', $phi->id) }}" method="POST">
+        <form action="{{ route('pembayaran.update', $phi->id) }}" method="POST">
             @method('PUT')
             @csrf
             <div class="mb-3">

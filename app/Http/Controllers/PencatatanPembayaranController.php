@@ -10,13 +10,13 @@ class PencatatanPembayaranController extends Controller
 {
     public function index()
     {
-        $pencatatan = PencatatanPembayaran::all();
-        return view('pencatatan.index', compact('pencatatan'));
+        $pembayaran = PencatatanPembayaran::all();
+        return view('pembayaran.index', compact('pembayaran'));
     }
 
     public function create()
     {
-        return view('pencatatan.create');
+        return view('pembayaran.create');
     }
 
     public function store(Request $request) 
@@ -33,12 +33,12 @@ class PencatatanPembayaranController extends Controller
 
     $pencatatan = PencatatanPembayaran::create($request->all());
 
-    return redirect()->route('pencatatan')->with('sucess', 'pencatatan created sucessfully');
+    return redirect()->route('pembayaran')->with('sucess', 'pencatatan pembayaran created sucessfully');
 }
     public function edit($id)
     {
         $phi = PencatatanPembayaran::find($id);
-        return view('pencatatan.edit', compact('phi'));
+        return view('pembayaran.edit', compact('phi'));
     }
 
     public function update(Request $request, $id)
@@ -63,16 +63,16 @@ class PencatatanPembayaranController extends Controller
 
     PencatatanPembayaran::whereId($id)->update($update);
 
-    return redirect()->route('pencatatan')
-        ->with('success', 'pencatatan updated successfully');
+    return redirect()->route('pembayaran')
+        ->with('success', 'pencatatan pembayaran updated successfully');
 }
 
 public function destroy($id)
 {
     $phi = PencatatanPembayaran::find($id);
     $phi->delete();
-    return redirect()->route('pencatatan')
-        ->with('success', 'pencatatan deleted successfully');
+    return redirect()->route('pembayaran')
+        ->with('success', 'pencatatan pembayaran deleted successfully');
 }
 
 }

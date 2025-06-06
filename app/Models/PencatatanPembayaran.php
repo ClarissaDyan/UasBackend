@@ -18,5 +18,5 @@ class PencatatanPembayaran extends Model
         'status',
     ];
 
-    protected $table = 'pencatatan';
+    protected $table = 'pembayaran';
 }

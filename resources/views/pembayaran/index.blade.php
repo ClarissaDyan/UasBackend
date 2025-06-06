@@ -11,7 +11,7 @@
             </div>
         @endif
         
-        <a href="{{ route('pencatatan.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <a href="{{ route('pembayaran.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
         
         <table class="table">
             <thead>
@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pencatatan as $phi)
+                @foreach ($pembayaran as $phi)
                 <tr>
                     <td>{{ $phi->id }}</td>
                     <td>{{ $phi->nama }}</td>
@@ -37,8 +37,8 @@
                     <td>{{ $phi->tanggal}}</td>
                     <td>{{ $phi->status }}</td>
                     <td>
-                        <a href="{{ route('pencatatan.edit', $phi->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('pencatatan.destroy', $phi->id) }}" method="POST" class="d-inline">
+                        <a href="{{ route('pembayaran.edit', $phi->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('pembayaran.destroy', $phi->id) }}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger">Delete</button>
