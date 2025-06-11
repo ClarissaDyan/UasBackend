@@ -8,10 +8,73 @@ use Illuminate\Support\Facades\DB;
 
 class RiwayatPenghuniController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $riwayat_penghuni = RiwayatPenghuni::all();
+        $query = RiwayatPenghuni::query();
+        
+        // Filter berdasarkan tanggal masuk
+        if ($request->filled('filter_tanggal_masuk_dari')) {
+            $query->where('tanggal_masuk', '>=', $request->filter_tanggal_masuk_dari);
+        }
+        
+        if ($request->filled('filter_tanggal_masuk_sampai')) {
+            $query->where('tanggal_masuk', '<=', $request->filter_tanggal_masuk_sampai);
+        }
+        
+        // Filter berdasarkan tanggal keluar
+        if ($request->filled('filter_tanggal_keluar_dari')) {
+            $query->where('tanggal_keluar', '>=', $request->filter_tanggal_keluar_dari);
+        }
+        
+        if ($request->filled('filter_tanggal_keluar_sampai')) {
+            $query->where('tanggal_keluar', '<=', $request->filter_tanggal_keluar_sampai);
+        }
+        
+        $riwayat_penghuni = $query->orderBy('created_at', 'desc')->get();
+        
         return view('riwayat_penghuni.index', compact('riwayat_penghuni'));
+    }
+
+    // Fungsi khusus untuk filter tanggal masuk
+    public function filterByTanggalMasuk(Request $request)
+    {
+        $query = RiwayatPenghuni::query();
+        
+        if ($request->filled('dari')) {
+            $query->where('tanggal_masuk', '>=', $request->dari);
+        }
+        
+        if ($request->filled('sampai')) {
+            $query->where('tanggal_masuk', '<=', $request->sampai);
+        }
+        
+        $riwayat_penghuni = $query->orderBy('tanggal_masuk', 'desc')->get();
+        
+        return view('riwayat_penghuni.index', compact('riwayat_penghuni'));
+    }
+    
+    // Fungsi khusus untuk filter tanggal keluar
+    public function filterByTanggalKeluar(Request $request)
+    {
+        $query = RiwayatPenghuni::query();
+        
+        if ($request->filled('dari')) {
+            $query->where('tanggal_keluar', '>=', $request->dari);
+        }
+        
+        if ($request->filled('sampai')) {
+            $query->where('tanggal_keluar', '<=', $request->sampai);
+        }
+        
+        $riwayat_penghuni = $query->orderBy('tanggal_keluar', 'desc')->get();
+        
+        return view('riwayat_penghuni.index', compact('riwayat_penghuni'));
+    }
+    
+    // Fungsi untuk reset filter
+    public function resetFilter()
+    {
+        return redirect()->route('riwayat_penghuni');
     }
 
     public function create()
@@ -22,19 +85,19 @@ class RiwayatPenghuniController extends Controller
     public function store(Request $request) 
     {
         $request->validate([
-        'nama' => 'required',
-        'nomor' => 'required',
-        'kamar' => 'required',
-        'alasan' => 'required',
-        'tanggal_masuk' => 'required|date',
-        'tanggal_keluar' => 'required|date',
-    ]);
+            'nama' => 'required',
+            'nomor' => 'required',
+            'kamar' => 'required',
+            'alasan' => 'required',
+            'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date',
+        ]);
 
+        $riwayat_penghuni = RiwayatPenghuni::create($request->all());
 
-    $riwayat_penghuni = RiwayatPenghuni::create($request->all());
-
-    return redirect()->route('riwayat_penghuni')->with('success', 'Riwayat penghuni created successfully');
-}
+        return redirect()->route('riwayat_penghuni')->with('success', 'Riwayat penghuni created successfully');
+    }
+    
     public function edit($id)
     {
         $phi = RiwayatPenghuni::find($id);
@@ -42,37 +105,36 @@ class RiwayatPenghuniController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'nama' => 'required',
-        'nomor' => 'required',
-        'kamar' => 'required',
-        'alasan' => 'required',
-        'tanggal_masuk' => 'required|date',
-        'tanggal_keluar' => 'required|date',
-    ]);
+    {
+        $request->validate([
+            'nama' => 'required',
+            'nomor' => 'required',
+            'kamar' => 'required',
+            'alasan' => 'required',
+            'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date',
+        ]);
 
-    $update = [
-        'nama' => $request->nama,
-        'nomor' => $request->nomor,
-        'kamar' => $request->kamar,
-        'alasan' => $request->alasan,
-        'tanggal_masuk' => $request->tanggal_masuk,
-        'tanggal_keluar' => $request->tanggal_keluar,
-    ];
+        $update = [
+            'nama' => $request->nama,
+            'nomor' => $request->nomor,
+            'kamar' => $request->kamar,
+            'alasan' => $request->alasan,
+            'tanggal_masuk' => $request->tanggal_masuk,
+            'tanggal_keluar' => $request->tanggal_keluar,
+        ];
 
-    RiwayatPenghuni::whereId($id)->update($update);
+        RiwayatPenghuni::whereId($id)->update($update);
 
-    return redirect()->route('riwayat_penghuni')
-        ->with('success', 'Riwayat penghuni updated successfully');
-}
+        return redirect()->route('riwayat_penghuni')
+            ->with('success', 'Riwayat penghuni updated successfully');
+    }
 
-public function destroy($id)
-{
-    $phi = RiwayatPenghuni::find($id);
-    $phi->delete();
-    return redirect()->route('riwayat_penghuni')
-        ->with('success', 'Riwayat penghuni deleted successfully');
-}
-
+    public function destroy($id)
+    {
+        $phi = RiwayatPenghuni::find($id);
+        $phi->delete();
+        return redirect()->route('riwayat_penghuni')
+            ->with('success', 'Riwayat penghuni deleted successfully');
+    }
 }
