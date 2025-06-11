@@ -46,6 +46,9 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/riwayat_penghuni', [RiwayatPenghuniController::class, 'index'])->name('riwayat_penghuni'); 
 
 Route::group(['middleware' => 'auth'], function () {
+    // Routes untuk filter
+    Route::get('/riwayat-penghuni/filter-tanggal-masuk', [RiwayatPenghuniController::class, 'filterByTanggalMasuk'])->name('riwayat_penghuni.filter_tanggal_masuk');
+    Route::get('/riwayat-penghuni/filter-tanggal-keluar', [RiwayatPenghuniController::class, 'filterByTanggalKeluar'])->name('riwayat_penghuni.filter_tanggal_keluar');
     Route::get('/riwayat_penghuni/create', [RiwayatPenghuniController::class, 'create'])->name('riwayat_penghuni.create');
     Route::get('/riwayat_penghuni/edit/{id}', [RiwayatPenghuniController::class, 'edit'])->name('riwayat_penghuni.edit');
     Route::post('/riwayat_penghuni/store', [RiwayatPenghuniController::class, 'store'])->name('riwayat_penghuni.store');
