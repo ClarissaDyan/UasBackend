@@ -3,14 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ManajemanPenghuniController;
+use App\Http\Controllers\ManajemenKamarKosController;
+use App\Http\Controllers\RiwayatPenghuniController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -25,4 +23,32 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/penghuni/store', [ManajemanPenghuniController::class, 'store'])->name('penghuni.store');
     Route::put('/penghuni/update/{id}', [ManajemanPenghuniController::class, 'update'])->name('penghuni.update');
     Route::delete('/penghuni/destroy/{id}', [ManajemanPenghuniController::class, 'destroy'])->name('penghuni.destroy');
+});
+
+//route untuk menajemen kamar kos
+Route::get('/kamarkos', [ManajemenKamarKosController::class, 'index'])->name('kamarkos');
+
+Route::group(['middleware' => 'auth'], function () {
+    // Route untuk sorting kamar kos
+    Route::get('/kamarkos/sort/{direction}', [ManajemenKamarKosController::class, 'sortByNomorKamar'])
+    ->name('kamarkos.sort')
+    ->where('direction', 'asc|desc');
+
+    // Route untuk CRUD kamar kos
+    Route::get('/kamarkos/create', [ManajemenKamarKosController::class, 'create'])->name('kamarkos.create');
+    Route::get('/kamarkos/edit/{id}', [ManajemenKamarKosController::class, 'edit'])->name('kamarkos.edit');
+    Route::post('/kamarkos/store', [ManajemenKamarKosController::class, 'store'])->name('kamarkos.store');
+    Route::put('/kamarkos/update/{id}', [ManajemenKamarKosController::class, 'update'])->name('kamarkos.update');
+    Route::delete('/kamarkos/destroy/{id}', [ManajemenKamarKosController::class, 'destroy'])->name('kamarkos.destroy');
+});
+
+// Route for Riwayat Penghuni
+Route::get('/riwayat_penghuni', [RiwayatPenghuniController::class, 'index'])->name('riwayat_penghuni'); 
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/riwayat_penghuni/create', [RiwayatPenghuniController::class, 'create'])->name('riwayat_penghuni.create');
+    Route::get('/riwayat_penghuni/edit/{id}', [RiwayatPenghuniController::class, 'edit'])->name('riwayat_penghuni.edit');
+    Route::post('/riwayat_penghuni/store', [RiwayatPenghuniController::class, 'store'])->name('riwayat_penghuni.store');
+    Route::put('/riwayat_penghuni/update/{id}', [RiwayatPenghuniController::class, 'update'])->name('riwayat_penghuni.update');
+    Route::delete('/riwayat_penghuni/destroy/{id}', [RiwayatPenghuniController::class, 'destroy'])->name('riwayat_penghuni.destroy');
 });
