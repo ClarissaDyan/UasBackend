@@ -47,6 +47,12 @@
     .menu-button i {
         margin-right: 0.5rem;
     }
+
+    .hero-image img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
 </style>
 
 <div class="container">
@@ -55,7 +61,12 @@
             <div class="welcome-card">
                 <h2>Selamat Datang di</h2>
                 <h3>KOS SIYIANI</h3>
-                <p>Pilih menu di bawah ini untuk mengelola <u>Kos</u> Anda</p>
+
+                <div class="hero-image">
+                    <img src="KOS.png" alt="robot icon">
+                </div>
+
+                <h5>Pilih menu di bawah ini untuk mengelola <u>Kos</u> Anda</h5>
 
                 <div class="d-flex justify-content-center flex-wrap">
                     <a href="/penghuni" class="menu-button">
