@@ -64,6 +64,13 @@
                     <a href="/pembayaran" class="menu-button">
                         <i class="fas fa-money-check-alt"></i> Pencatatan Pembayaran
                     </a>
+                    <a href="/kamarkos" class="menu-button">
+                        <i class="fa-solid fa-house-user"></i> Manajemen Kamar Kos
+                    </a>
+                    <a href="/riwayat_penghuni" class="menu-button">
+                        <i class="fa-solid fa-clock-rotate-left"></i> Riwayat Penghuni
+                    </a>
+                    
                 </div>
             </div>
         </div>

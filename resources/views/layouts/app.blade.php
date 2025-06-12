@@ -70,9 +70,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
- PencatatanPembayaran
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    Home
+                    <i class="fa-solid fa-house"></i>  Home
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -88,11 +87,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('pembayaran') }}">Pembayaran</a>
                         </li>
-                    </ul>
-
-                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('kamarkos') }}">Kamar Kos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('riwayat_penghuni') }}">Riwayat</a>
                         </li>
                     </ul>
 

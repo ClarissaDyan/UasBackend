@@ -14,6 +14,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/penghuni/create', [ManajemanPenghuniController::class, 'create'])->name('penghuni.create');
@@ -30,9 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/pembayaran/update/{id}', [PencatatanPembayaranController::class, 'update'])->name('pembayaran.update');
     Route::delete('/pembayaran/destroy/{id}', [PencatatanPembayaranController::class, 'destroy'])->name('pembayaran.destroy');
 });
+
 //route untuk menajemen kamar kos
 Route::get('/kamarkos', [ManajemenKamarKosController::class, 'index'])->name('kamarkos');
-
 Route::group(['middleware' => 'auth'], function () {
     // Route untuk sorting kamar kos
     Route::get('/kamarkos/sort/{direction}', [ManajemenKamarKosController::class, 'sortByNomorKamar'])
@@ -49,7 +50,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 // Route for Riwayat Penghuni
 Route::get('/riwayat_penghuni', [RiwayatPenghuniController::class, 'index'])->name('riwayat_penghuni'); 
-
 Route::group(['middleware' => 'auth'], function () {
     // Routes untuk filter
     Route::get('/riwayat-penghuni/filter-tanggal-masuk', [RiwayatPenghuniController::class, 'filterByTanggalMasuk'])->name('riwayat_penghuni.filter_tanggal_masuk');
