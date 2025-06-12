@@ -33,6 +33,7 @@
 
     <title>Home</title>
 
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -40,8 +41,14 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light custom-navbar shadow-sm">
             <div class="container">
+ PencatatanPembayaran
                 <a class="navbar-brand" href="{{ url('/home') }}">
+<<<<<<< HEAD
                     <i class="fa-solid fa-house"></i>  Home
+=======
+                    Home
+
+>>>>>>> 5cb396caf12bb1707da0a8545e21297fa7fad860
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,6 +62,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('pembayaran') }}">Pembayaran</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kamarkos') }}">Kamar Kos</a>
                         </li>
                     </ul>
 
