@@ -124,3 +124,5 @@ class ManajemanPenghuniController extends Controller
             ->with('success', 'Penghuni berhasil dihapus');
     }
 }
+
+//holll
