@@ -14,26 +14,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-<<<<<<< HEAD
-
 // Route untuk penghuni yang bisa diakses tanpa auth (untuk melihat daftar)
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
-
-
-
-=======
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
->>>>>>> 2a8361e6c8e91704866c7afd7ccc83e049f74467
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/penghuni/create', [ManajemanPenghuniController::class, 'create'])->name('penghuni.create');
     Route::get('/penghuni/edit/{id}', [ManajemanPenghuniController::class, 'edit'])->name('penghuni.edit');
     Route::post('/penghuni/store', [ManajemanPenghuniController::class, 'store'])->name('penghuni.store');
     Route::put('/penghuni/update/{id}', [ManajemanPenghuniController::class, 'update'])->name('penghuni.update');
     Route::delete('/penghuni/destroy/{id}', [ManajemanPenghuniController::class, 'destroy'])->name('penghuni.destroy');
-<<<<<<< HEAD
     Route::get('/penghuni/search', [ManajemanPenghuniController::class, 'search'])->name('penghuni.search');
-});
-=======
 });
 Route::get('/pembayaran', [PencatatanPembayaranController::class, 'index'])->name('pembayaran');
 Route::group(['middleware' => 'auth'], function () {
@@ -73,4 +64,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/riwayat_penghuni/update/{id}', [RiwayatPenghuniController::class, 'update'])->name('riwayat_penghuni.update');
     Route::delete('/riwayat_penghuni/destroy/{id}', [RiwayatPenghuniController::class, 'destroy'])->name('riwayat_penghuni.destroy');
 });
->>>>>>> 2a8361e6c8e91704866c7afd7ccc83e049f74467
