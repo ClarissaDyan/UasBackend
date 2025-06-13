@@ -14,11 +14,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-<<<<<<< HEAD
 
-=======
 // Route untuk penghuni yang bisa diakses tanpa auth (untuk melihat daftar)
->>>>>>> d8a86f9beaaf54b3bc7b0870f765beb3ece28a7d
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
 
