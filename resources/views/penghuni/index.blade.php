@@ -48,7 +48,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Nomor</th>
+                    <th scope="col">Nomor Telepon</th>
                     <th scope="col">Kamar</th>
                     <th scope="col">Masa Sewa</th>
                     <th scope="col">Action</th>
