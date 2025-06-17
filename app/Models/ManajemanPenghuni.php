@@ -14,7 +14,6 @@ class ManajemanPenghuni extends Model
         'nomor',
         'kamar',
         'masaSewa',
-        'user_id'
     ];
 
     protected $table = 'penghuni';
