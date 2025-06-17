@@ -10,27 +10,27 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control" id="nama" name="nama" value="{{ $phi->nama }}" required>
             </div>
             <div class="mb-3">
                 <label for="nomor" class="form-label">Nomor</label>
-                <input type="text" class="form-control" id="nomor" name="nomor" required>
+                <input type="text" class="form-control" id="nomor" name="nomor" value="{{ $phi->nomor }}" required>
             </div>
             <div class="mb-3">
                 <label for="kamar" class="form-label">Kamar</label>
-                <input type="text" class="form-control" id="kamar" name="kamar" required>
+                <input type="text" class="form-control" id="kamar" name="kamar" value="{{ $phi->kamar }}" required>
             </div>
             <div class="mb-3">
                 <label for="hargaSewa" class="form-label">Harga Sewa</label>
-                <input type="text" class="form-control" id="hargaSewa" name="hargaSewa" required>
+                <input type="text" class="form-control" id="hargaSewa" name="hargaSewa" value="{{ $phi->hargaSewa }}" required>
             </div>
             <div class="mb-3">
                 <label for="tanggal" class="form-label">Tanggal Jatuh Tempo</label>
-                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ $phi->tanggal }}" required>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
+                <select class="form-control" id="status" name="status" value="{{ $phi->status }}" required>
                     <option value="">-- Pilih Status --</option>
                     <option value="Lunas">Lunas</option>
                     <option value="Belum Lunas">Belum Lunas</option>
