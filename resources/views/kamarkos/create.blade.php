@@ -13,7 +13,11 @@
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input type="text" class="form-control" id="status" name="status" required>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="">-- Pilih Status --</option>
+                    <option value="Tersedia">Tersedia</option>
+                    <option value="Tidak Tersedia">Tidak Tersedia</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="hargaSewa" class="form-label">Harga Sewa</label>
