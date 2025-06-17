@@ -100,8 +100,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Nomor</th>
-                        <th scope="col">Kamar</th>
+                        <th scope="col">Nomor Telepon</th>
+                        <th scope="col">Nomor Kamar</th>
                         <th scope="col">Alasan</th>
                         <th scope="col">Tanggal Masuk</th>
                         <th scope="col">Tanggal Keluar</th>
