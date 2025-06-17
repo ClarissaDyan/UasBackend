@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Daftar Pembayaran')
+
 @section('content')
 <section class="page-section portfolio" id="portfolio">
     <div class="container">

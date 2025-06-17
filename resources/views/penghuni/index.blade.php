@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Daftar Penghuni')
+
 @section('content')
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
@@ -10,7 +12,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        
+
         <!-- Search Form -->
         <div class="row mb-3">
             <div class="col-md-8">
@@ -42,14 +44,14 @@
                 - {{ $penghuni->total() }} hasil ditemukan
             </div>
         @endif
-        
+
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Nomor</th>
-                    <th scope="col">Kamar</th>
+                    <th scope="col">Nomor Telepon</th>
+                    <th scope="col">Nomor Kamar</th>
                     <th scope="col">Masa Sewa</th>
                     <th scope="col">Action</th>
                 </tr>

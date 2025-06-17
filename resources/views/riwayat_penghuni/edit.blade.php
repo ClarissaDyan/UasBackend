@@ -10,30 +10,30 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control" id="nama" name="nama" value="{{ $phi->nama }}" >
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Nomor</label>
-                <input type="text" class="form-control" id="nomor" name="nomor" required>
+                <label for="email" class="form-label">Nomor Telepon</label>
+                <input type="text" class="form-control" id="nomor" name="nomor" value="{{ $phi->nomor }}" >
             </div>
             <div class="mb-3">
-                <label for="jurusan" class="form-label">Kamar</label>
-                <input type="text" class="form-control" id="kamar" name="kamar" required>
+                <label for="jurusan" class="form-label">Nomor Kamar</label>
+                <input type="text" class="form-control" id="kamar" name="kamar" value="{{ $phi->kamar }}" >
             </div>
            <div class="mb-3">
-                <label for="alasan" class="form-label">Alasan</label>
-                <input type="text" class="form-control" id="alasan" name="alasan" required>
+                <label for="alasan" class="form-label">Alasan Keluar</label>
+                <input type="text" class="form-control" id="alasan" name="alasan" value="{{ $phi->alasan }}" >
             </div>
             <div class="mb-3">
                 <label for="tanggal_masuk" class="form-label">Tanggal Masuk</label>
-                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" required>
+                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" value="{{ $phi->tanggal_masuk }}" >
             </div>
             <div class="mb-3">
                 <label for="tanggal_keluar" class="form-label">Tanggal Keluar</label>
-                <input type="date" class="form-control" id="tanggal_keluar" name="tanggal_keluar" required>
+                <input type="date" class="form-control" id="tanggal_keluar" name="tanggal_keluar" value="{{ $phi->tanggal_keluar }}" >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </section>
-@endsection 
+@endsection

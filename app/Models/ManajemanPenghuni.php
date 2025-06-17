@@ -13,7 +13,7 @@ class ManajemanPenghuni extends Model
         'nama',
         'nomor',
         'kamar',
-        'masaSewa'
+        'masaSewa',
     ];
 
     protected $table = 'penghuni';

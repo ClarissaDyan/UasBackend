@@ -17,7 +17,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Route untuk penghuni yang bisa diakses tanpa auth (untuk melihat daftar)
 Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
-Route::get('/penghuni', [ManajemanPenghuniController::class, 'index'])->name('penghuni');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/penghuni/create', [ManajemanPenghuniController::class, 'create'])->name('penghuni.create');
