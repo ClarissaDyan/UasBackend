@@ -4,7 +4,7 @@
 <style>
 /* Navbar gradasi dengan shadow dan border radius */
 .custom-navbar {
-    background: linear-gradient(to right, #fbc02d, #ffeb3b, #fff9c4);
+    background:#fbc02d;
     padding: 1rem;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
