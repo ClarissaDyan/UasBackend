@@ -21,7 +21,7 @@
                 <input type="text" class="form-control" id="kamar" name="kamar" value="{{ $phi->kamar }}" >
             </div>
            <div class="mb-3">
-                <label for="alasan" class="form-label">Alasan</label>
+                <label for="alasan" class="form-label">Alasan Keluar</label>
                 <input type="text" class="form-control" id="alasan" name="alasan" value="{{ $phi->alasan }}" >
             </div>
             <div class="mb-3">
