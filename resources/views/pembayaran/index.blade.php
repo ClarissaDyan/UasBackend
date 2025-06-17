@@ -13,7 +13,37 @@
             </div>
         @endif
         
-        <a href="{{ route('pembayaran.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <!-- Search Form -->
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <form method="GET" action="{{ route('pembayaran') }}">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" 
+                               placeholder="Cari berdasarkan nama, nomor telepon, nomor kamar, atau harga sewa..." 
+                               value="{{ request('search') }}">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i> Cari
+                        </button>
+                        @if(request('search'))
+                            <a href="{{ route('pembayaran') }}" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Reset
+                            </a>
+                        @endif
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 text-end">
+                <a href="{{ route('pembayaran.create') }}" class="btn btn-primary">Tambah Data</a>
+            </div>
+        </div>
+
+        <!-- Search Results Info -->
+        @if(request('search'))
+            <div class="alert alert-info">
+                <strong>Hasil pencarian untuk:</strong> "{{ request('search') }}" 
+                - {{ $pembayaran->total() }} hasil ditemukan
+            </div>
+        @endif
         
         <table class="table">
             <thead>

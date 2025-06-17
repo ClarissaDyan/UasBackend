@@ -13,8 +13,8 @@
     .welcome-card {
         background-color: rgba(255, 248, 225, 0.95);
         border-radius: 1.5rem;
-        padding: 3rem 2rem;
-        margin: 2rem auto;
+        padding: 2rem 1.5rem;
+        margin: 1.5rem auto;
         max-width: 900px;
         text-align: center;
     }
@@ -28,29 +28,29 @@
     .welcome-card h3 {
         font-weight: bold;
         color: #333;
-        margin-bottom: 1.5rem;
-        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
     }
 
     .welcome-card p {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         color: #666;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .menu-grid {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem; 
-        margin-top: 2rem;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
         row-gap: 2rem;
     }
 
     .menu-button {
         background-color: #f0ad4e;
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         border-radius: 1rem;
         display: flex;
         flex-direction: column;
@@ -61,18 +61,18 @@
         font-weight: bold;
         transition: all 0.3s ease;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 1rem;
+        padding: 0.8rem;
         text-align: center;
     }
 
     .menu-button i {
-        font-size: 2rem;
-        margin-bottom: 0.8rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
     }
 
     .menu-button span {
-        font-size: 0.9rem;
-        line-height: 1.2;
+        font-size: 0.85rem;
+        line-height: 1.1;
     }
 
     .menu-button:hover {
@@ -108,6 +108,7 @@
                 <h2>Selamat Datang di</h2>
                 <h3>KOS SIYIANI</h3>
                 <p>Pilih menu di bawah ini untuk mengelola <u>Kos</u> Anda</p>
+
                 <div class="menu-grid">
                     <a href="/penghuni" class="menu-button">
                         <i class="fas fa-users"></i>
