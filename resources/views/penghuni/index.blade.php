@@ -3,6 +3,8 @@
 @section('title', 'Daftar Penghuni')
 
 @section('content')
+
+
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         <h1>Daftar Penghuni</h1>
