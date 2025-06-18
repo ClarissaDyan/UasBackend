@@ -8,9 +8,69 @@ use Illuminate\Support\Facades\DB;
 
 class PencatatanPembayaranController extends Controller
 {
-    public function index()
+    
+    public function index(Request $request)
     {
-        $pembayaran = PencatatanPembayaran::all();
+        $query = PencatatanPembayaran::query();
+        
+        // Cek apakah ada parameter search
+        if ($request->has('search') && !empty($request->search)) {
+            $searchTerm = $request->search;
+            
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('nama', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('nomor', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('kamar', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('hargaSewa', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('tanggal', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('status', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+        
+        // Cek apakah ada filter berdasarkan kolom spesifik
+        if ($request->has('filter_by') && $request->has('filter_value') && !empty($request->filter_value)) {
+            $filterBy = $request->filter_by;
+            $filterValue = $request->filter_value;
+            
+            // Validasi kolom yang diizinkan untuk filter
+            $allowedColumns = ['nama', 'nomor', 'kamar', 'hargaSewa', 'tanggal', 'status'];
+            if (in_array($filterBy, $allowedColumns)) {
+                $query->where($filterBy, 'LIKE', '%' . $filterValue . '%');
+            }
+        }
+        
+        // Urutkan berdasarkan nama secara default
+        $query->orderBy('nama', 'asc');
+        
+        // Paginate hasil (opsional)
+        $pembayaran = $query->paginate(10)->withQueryString();
+        
+        return view('pembayaran.index', compact('pembayaran'));
+    }
+    
+    // Method khusus untuk search
+    public function search(Request $request)
+    {
+        $searchTerm = $request->get('q');
+        
+        $query = PencatatanPembayaran::query();
+        
+        if (!empty($searchTerm)) {
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('nama', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('nomor', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('kamar', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('hargaSewa', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('tanggal', 'LIKE', '%' . $searchTerm . '%')
+                  ->orWhere('status', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+        
+        $query->orderBy('nama', 'asc');
+        
+        // Paginate hasil
+        $pembayaran = $query->paginate(10)->withQueryString();
+        
         return view('pembayaran.index', compact('pembayaran'));
     }
 
@@ -31,7 +91,7 @@ class PencatatanPembayaranController extends Controller
     ]);
     
 
-    $pencatatan = PencatatanPembayaran::create($request->all());
+    $pembayaran = PencatatanPembayaran::create($request->all());
 
     return redirect()->route('pembayaran')->with('sucess', 'pencatatan pembayaran created sucessfully');
 }
