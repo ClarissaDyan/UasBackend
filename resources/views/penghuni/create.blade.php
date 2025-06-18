@@ -12,11 +12,11 @@
                 <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
             <div class="mb-3">
-                <label for="nomor" class="form-label">Nomor</label>
+                <label for="nomor" class="form-label">Nomor Telepon</label>
                 <input type="text" class="form-control" id="nomor" name="nomor" required>
             </div>
             <div class="mb-3">
-                <label for="kamar" class="form-label">Kamar</label>
+                <label for="kamar" class="form-label">Nomor Kamar</label>
                 <input type="text" class="form-control" id="kamar" name="kamar" required>
             </div>
             <div class="mb-3">
