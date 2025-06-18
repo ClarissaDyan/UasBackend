@@ -48,7 +48,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Nomor Telepon</th>
                     <th scope="col">Nomor Kamar</th>
@@ -59,7 +58,6 @@
             <tbody>
                 @forelse ($penghuni as $phi)
                 <tr>
-                    <td>{{ $phi->id }}</td>
                     <td>{{ $phi->nama }}</td>
                     <td>{{ $phi->nomor }}</td>
                     <td>{{ $phi->kamar }}</td>
