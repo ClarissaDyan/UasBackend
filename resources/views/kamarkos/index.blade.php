@@ -36,7 +36,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nomor Kamar</th>
                     <th scope="col">Status</th>
                     <th scope="col">Harga Sewa</th>
@@ -47,7 +46,6 @@
             <tbody>
                 @foreach ($kamarkos as $kamar)
                 <tr>
-                    <td>{{ $kamar->id }}</td>
                     <td>{{ $kamar->nomorkamar }}</td>
                     <td>{{ $kamar->status }}</td>
                     <td>{{ $kamar->hargaSewa }}</td>
